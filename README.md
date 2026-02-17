@@ -1,65 +1,53 @@
-🐍 Code2Xplore – 60 Days of Python Challenge
+Day 05 - Smart Transport Load Balancing
 
-This repository documents my journey of completing the Code2Xplore – 60 Days Python Challenge conducted by the Department of Computer Science and Engineering, SRM University–AP.
+Full Name: joshnavi gooru
+L value (letters excluding spaces): 13
+PLI value: 1
+Applied Rule: Rule B – Remove Very Light items
 
-The purpose of this challenge is to strengthen Python fundamentals, improve logical thinking, and build strong problem-solving skills through consistent daily coding practice.
+Problem Statement
 
-🎯 Objectives
+The program analyzes package weights before transport loading.
+Each weight is classified into Very Light, Normal Load, Heavy Load, Overload, or Invalid entries based on defined ranges.
+After classification, a personalized rule (PLI) calculated from the name length modifies the final loading plan and produces a balanced loading report.
 
-Practice Python daily as part of the 60-day challenge
+Approach / Logic Used
 
-Strengthen core programming concepts
+Accept number of weights and read each weight using a loop.
 
-Improve logical and analytical thinking
+Categorize each weight using conditional statements.
 
-Apply concepts through hands-on coding tasks
+Calculate L (letters in name excluding spaces).
 
-Build consistency and coding discipline
+Compute PLI = L % 3.
 
-📚 Topics Covered
+Apply the rule:
 
-Throughout this challenge, I am working on:
+PLI = 0 → Move overload to invalid entries
 
-Variables and Data Types
+PLI = 1 → Remove very light items
 
-Conditional Statements
+PLI = 2 → Keep only normal and heavy loads
 
-Loops
+Count valid weights and affected items.
 
-Functions
+Display final categorized lists.
 
-Lists and String Manipulation
+Test Case
 
-Input Handling
+Input
 
-Basic Data Processing
+Number of weights: 7
+Weights: 4, 18, 70, -2, 30, 55, 0
+Name: joshnavi gooru
 
-Problem Solving
 
-Mini Projects
+Output
 
-📂 Repository Structure
-
-Each file represents a day’s task or challenge:
-
-studentperformanceanalyzer.py → Student marks analysis project
-
-day4challenge.py → Smart List Filter & Rebuilder
-
-More files will be added as the challenge progresses
-
-🚀 Technologies Used
-
-Python
-
-Git
-
-GitHub
-
-💡 Learning Outcome
-
-Through this challenge, I am improving my understanding of Python basics, writing structured programs, and developing confidence in solving problems independently.
-
-📌 Commitment
-
-I am committed to completing all 60 days of this challenge with consistency and dedication.
+Very Light: []
+Normal Load: [18]
+Heavy Load: [30, 55]
+Overload: []
+Invalid Entries: [-2]
+Total Valid Weights: 3
+Affected items due to PLI: 2
