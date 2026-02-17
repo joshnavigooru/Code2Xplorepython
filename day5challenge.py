@@ -46,4 +46,19 @@ else:
      very_light=[]
 overload=[]
 valid_count=0
+for item in very_light:
+    valid_count=valid_count+1
+for item in normal_load:
+    valid_count=valid_count+1
+for item in heavy_load:
+    valid_count=valid_count+1
+for item in overload:
+    valid_count=valid_count+1
+print("very light:",very_light)
+print("normal load:",normal_load)
+print("heavy load:",heavy_load)
+print("overload:",overload)
+print("invalid entries:",invalid_entries)
+print("total valid weights=",valid_count)
+print("affected items to pli=",affected_items)
 
