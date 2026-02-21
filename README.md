@@ -1,53 +1,88 @@
-Day 05 - Smart Transport Load Balancing
+Smart Playlist Intelligence System
 
-Full Name: joshnavi gooru
-L value (letters excluding spaces): 13
-PLI value: 1
-Applied Rule: Rule B – Remove Very Light items
+Register Number Last Digit: 8
+Personalization Applied: Dynamic Threshold Adjustment
 
 Problem Statement
 
-The program analyzes package weights before transport loading.
-Each weight is classified into Very Light, Normal Load, Heavy Load, Overload, or Invalid entries based on defined ranges.
-After classification, a personalized rule (PLI) calculated from the name length modifies the final loading plan and produces a balanced loading report.
+The program analyzes song durations in a playlist and categorizes it as Too Short, Too Long, Repetitive, Balanced, or Irregular.
+
+It first validates that all durations are greater than zero.
+Then it applies personalized duration limits based on the last digit of the register number to generate a customized playlist report.
 
 Approach / Logic Used
 
-Accept number of weights and read each weight using a loop.
+Set reg_last_digit = 8 for personalization.
 
-Categorize each weight using conditional statements.
+Compute personalized limits:
 
-Calculate L (letters in name excluding spaces).
+Minimum limit = 250 + (8 × 5) = 290
 
-Compute PLI = L % 3.
+Maximum limit = 3200 + (8 × 50) = 3600
 
-Apply the rule:
+Variation limit = 700 + (8 × 20) = 860
 
-PLI = 0 → Move overload to invalid entries
+Accept number of songs and store durations in a list.
 
-PLI = 1 → Remove very light items
+Validate input:
 
-PLI = 2 → Keep only normal and heavy loads
+If any duration ≤ 0 → Invalid Playlist
 
-Count valid weights and affected items.
+Calculate:
 
-Display final categorized lists.
+Total duration using sum()
 
-Test Case
+Number of songs using len()
 
+Apply classification logic:
+
+Total < min_limit → Too Short
+
+Total > max_limit → Too Long
+
+Duplicate durations → Repetitive
+
+Duration variation ≤ variation_limit → Balanced
+
+Otherwise → Irregular
+Test Case:
 Input
 
-Number of weights: 7
-Weights: 4, 18, 70, -2, 30, 55, 0
-Name: joshnavi gooru
+Number of songs: 4
+Durations: 180, 200, 220, 210
 
+Calculations
 
-Output
+Total Duration = 810 seconds
+Number of Songs = 4
+Variation = 220 − 180 = 40
 
-Very Light: []
-Normal Load: [18]
-Heavy Load: [30, 55]
-Overload: []
-Invalid Entries: [-2]
-Total Valid Weights: 3
-Affected items due to PLI: 2
+Personalized Limits:
+
+Min Limit = 290
+
+Max Limit = 3600
+
+Variation Limit = 860
+
+Playlist Analysis Report 
+Personalized Short Limit: 290
+Personalized Long Limit: 3600
+Total Duration: 810 seconds
+Songs: 4
+Category: Balanced Playlist
+Recommendation: Good listening session.
+
+Learning Outcome
+
+Through this program, I learned:
+
+How to implement personalization logic
+
+How to use Python built-in functions (sum(), len(), set(), min(), max())
+
+How to validate user input
+
+How to apply conditional logic for classification
+
+How to design structured output reports
