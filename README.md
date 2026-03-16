@@ -1,88 +1,91 @@
-Smart Playlist Intelligence System
+Smart Campus Energy Analyzer
 
 Register Number Last Digit: 8
-Personalization Applied: Dynamic Threshold Adjustment
+Personalization Applied: Balanced Usage Detection
 
 Problem Statement
 
-The program analyzes song durations in a playlist and categorizes it as Too Short, Too Long, Repetitive, Balanced, or Irregular.
+The program analyzes energy consumption readings collected from different campus buildings.
+It classifies each reading as Efficient, Moderate, High Consumption, or Invalid based on predefined ranges.
 
-It first validates that all durations are greater than zero.
-Then it applies personalized duration limits based on the last digit of the register number to generate a customized playlist report.
+The program first checks whether the energy readings are valid (non-negative).
+Then it calculates the total energy consumption and number of buildings and generates an energy efficiency report.
 
+Based on the analysis, the campus usage is categorized as Efficient Campus, Moderate Usage, or Energy Waste Detected.
 Approach / Logic Used
 
 Set reg_last_digit = 8 for personalization.
 
-Compute personalized limits:
+Accept the number of energy readings from the user.
 
-Minimum limit = 250 + (8 × 5) = 290
+Store all energy readings in a list.
 
-Maximum limit = 3200 + (8 × 50) = 3600
+Classify readings using a dictionary:
 
-Variation limit = 700 + (8 × 20) = 860
+e < 0 → Invalid
 
-Accept number of songs and store durations in a list.
+0 – 50 → Efficient
 
-Validate input:
+51 – 150 → Moderate
 
-If any duration ≤ 0 → Invalid Playlist
+150 → High Consumption
+
+Use list comprehension to filter valid readings.
 
 Calculate:
 
-Total duration using sum()
+Total consumption using sum()
 
-Number of songs using len()
+Number of buildings using len()
 
-Apply classification logic:
+Store summary information in a tuple.
 
-Total < min_limit → Too Short
+Apply efficiency analysis logic:
 
-Total > max_limit → Too Long
+If total consumption > 600 → Energy Waste Detected
 
-Duplicate durations → Repetitive
+If high consumption readings > 3 → Moderate Usage
 
-Duration variation ≤ variation_limit → Balanced
+If efficient and moderate counts are equal → Efficient Campus
 
-Otherwise → Irregular
-Test Case:
+Otherwise → Moderate Usage
+
+Finally, generate a structured Energy Category Report.
+
+Test Case
 Input
-
-Number of songs: 4
-Durations: 180, 200, 220, 210
-
+Number of energy readings: 6
+Energy readings: 30, 45, 70, 90, 20, 60
 Calculations
 
-Total Duration = 810 seconds
-Number of Songs = 4
-Variation = 220 − 180 = 40
+Total Consumption = 315 units
+Number of Buildings = 6
 
-Personalized Limits:
+Efficient Readings = [30, 45, 20]
+Moderate Readings = [70, 90, 60]
+High Consumption = []
 
-Min Limit = 290
+Energy Analysis Report
 
-Max Limit = 3600
+Personalized Balanced Condition: Efficient Count = Moderate Count
 
-Variation Limit = 860
+Total Consumption: 315 units
+Number of Buildings: 6
 
-Playlist Analysis Report 
-Personalized Short Limit: 290
-Personalized Long Limit: 3600
-Total Duration: 810 seconds
-Songs: 4
-Category: Balanced Playlist
-Recommendation: Good listening session.
+Category: Efficient Campus
+
+Recommendation: Energy usage is balanced and efficient across buildings.
 
 Learning Outcome
 
 Through this program, I learned:
 
-How to implement personalization logic
+How to use lists, loops, and conditional statements in Python
 
-How to use Python built-in functions (sum(), len(), set(), min(), max())
+How to organize data using dictionaries
 
-How to validate user input
+How to filter data using list comprehension
 
-How to apply conditional logic for classification
+How to store summary information using tuples
 
-How to design structured output reports
+How to analyze data and generate a structured report using Python logic
