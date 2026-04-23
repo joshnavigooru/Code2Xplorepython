@@ -1,91 +1,42 @@
-Smart Campus Energy Analyzer
+Autonomous Smart City Data Intelligence System
 
-Register Number Last Digit: 8
-Personalization Applied: Balanced Usage Detection
+Register Number: AP24110011598
+
+Personalization Applied: Controlled Data Sorting & Adaptive Risk Analysis
 
 Problem Statement
 
-The program analyzes energy consumption readings collected from different campus buildings.
-It classifies each reading as Efficient, Moderate, High Consumption, or Invalid based on predefined ranges.
+The program simulates and analyzes smart city data such as traffic, air quality (AQI), and energy consumption. It classifies zones into High Risk, Energy Critical, Safe Zone, or Moderate and predicts the overall city condition.
 
-The program first checks whether the energy readings are valid (non-negative).
-Then it calculates the total energy consumption and number of buildings and generates an energy efficiency report.
-
-Based on the analysis, the campus usage is categorized as Efficient Campus, Moderate Usage, or Energy Waste Detected.
 Approach / Logic Used
+Generate data for multiple zones using random
+Store data in a list of dictionaries
+Classify zones using conditions
+Convert data into Pandas DataFrame
+Calculate custom risk score and apply transformation
+Use NumPy for mean and variance
+Identify Top 3 high-risk zones
+Detect patterns (multi-factor risk, stability, clusters)
+Generate final decision
+ 
+ Personalization Applied
+24110011598 % 3 = 1 → Custom sorting applied
+Data sorted using manual logic (traffic-based)
+Risk formula modified using name-based factor
 
-Set reg_last_digit = 8 for personalization.
+Custom Risk Formula
+risk_score = traffic * (0.3 + personal_factor*0.01) 
+           + air_quality * (0.4 + personal_factor*0.01) 
+           + energy * 0.2
 
-Accept the number of energy readings from the user.
 
-Store all energy readings in a list.
+Output
+DataFrame with risk scores
+Categorized zones
+Top 3 risk zones
+Risk tuple (max, avg, min)
 
-Classify readings using a dictionary:
-
-e < 0 → Invalid
-
-0 – 50 → Efficient
-
-51 – 150 → Moderate
-
-150 → High Consumption
-
-Use list comprehension to filter valid readings.
-
-Calculate:
-
-Total consumption using sum()
-
-Number of buildings using len()
-
-Store summary information in a tuple.
-
-Apply efficiency analysis logic:
-
-If total consumption > 600 → Energy Waste Detected
-
-If high consumption readings > 3 → Moderate Usage
-
-If efficient and moderate counts are equal → Efficient Campus
-
-Otherwise → Moderate Usage
-
-Finally, generate a structured Energy Category Report.
-
-Test Case
-Input
-Number of energy readings: 6
-Energy readings: 30, 45, 70, 90, 20, 60
-Calculations
-
-Total Consumption = 315 units
-Number of Buildings = 6
-
-Efficient Readings = [30, 45, 20]
-Moderate Readings = [70, 90, 60]
-High Consumption = []
-
-Energy Analysis Report
-
-Personalized Balanced Condition: Efficient Count = Moderate Count
-
-Total Consumption: 315 units
-Number of Buildings: 6
-
-Category: Efficient Campus
-
-Recommendation: Energy usage is balanced and efficient across buildings.
-
+Final decision
 Learning Outcome
 
-Through this program, I learned:
-
-How to use lists, loops, and conditional statements in Python
-
-How to organize data using dictionaries
-
-How to filter data using list comprehension
-
-How to store summary information using tuples
-
-How to analyze data and generate a structured report using Python logic
+Learned how to use Python, Pandas, and NumPy for data analysis, apply custom logic, and build a smart system.
